@@ -1,21 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from './http/http.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'angular';
+export class AppComponent {
 
-  constructor(private httpService: HttpService) {
+  constructor() {
 
-  }
-
-  ngOnInit(): void {
-    this.httpService.findItems().subscribe((data) => {
-      console.log(data);
-    })
   }
 }

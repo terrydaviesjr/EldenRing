@@ -1,0 +1,14 @@
+.item-query {
+    background-color: #FFF;
+    padding: 1rem;
+    color: #222;
+    tr {
+        cursor: pointer;
+    }
+    th {
+        cursor: initial;
+    }
+    &__cell {
+        padding: 16px 16px 16px 0;
+    }
+}

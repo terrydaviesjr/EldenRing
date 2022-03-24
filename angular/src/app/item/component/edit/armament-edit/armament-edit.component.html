@@ -1,0 +1,276 @@
+<form class="item-edit__form" [formGroup]="form">
+    <div class="row">
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Alias</mat-label>
+                <input matInput formControlName="alias">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Item Type</mat-label>
+                <mat-select formControlName="type" [compareWith]="compareFn" [disabled]="true">
+                    <mat-option *ngFor="let type of itemTypeOptions" [value]="type">{{type.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Item Subtype</mat-label>
+                <mat-select formControlName="subtype">
+                    <mat-option value="Melee Armament">Melee Armament</mat-option>
+                    <mat-option value="Ranged Weapon / Catalyst">Ranged Weapon / Catalyst</mat-option>
+                    <mat-option value="Arrow / Bolt">Arrow / Bolt</mat-option>
+                    <mat-option value="shield">Shield</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option value="Hammer">Hammer</mat-option>
+                    <mat-option value="Torch">Torch</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Damage Type</mat-label>
+                <mat-select formControlName="damageType">
+                    <mat-option value="Slash">Slash</mat-option>
+                    <mat-option value="Strike">Strike</mat-option>
+                    <mat-option value="Pierce">Pierce</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Skill</mat-label>
+                <input matInput formControlName="skill">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--3">
+            <mat-form-field appearance="fill">
+                <mat-label>FP Cost</mat-label>
+                <input matInput formControlName="skillFpCost" type="number">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--3">
+            <mat-form-field appearance="fill">
+                <mat-label>Weight</mat-label>
+                <input matInput formControlName="weight" type="number">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row__column row__column--6">
+            <h2>Attack Power</h2>
+            <div class="row">
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Physical</mat-label>
+                        <input matInput formControlName="apPhysical" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Magic</mat-label>
+                        <input matInput formControlName="apMagic" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fire</mat-label>
+                        <input matInput formControlName="apFire" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Lightning</mat-label>
+                        <input matInput formControlName="apLightning" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Holy</mat-label>
+                        <input matInput formControlName="apHoly" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Critical</mat-label>
+                        <input matInput formControlName="apCritical" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sorc. Scaling</mat-label>
+                        <input matInput formControlName="sorcScaling" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Incant. Scaling</mat-label>
+                        <input matInput formControlName="incScaling" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row__column row__column--6">
+            <h2>Guarded Damage Negation</h2>
+            <div class="row">
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Physical</mat-label>
+                        <input matInput formControlName="gdPhysical" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Magic</mat-label>
+                        <input matInput formControlName="gdMagic" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fire</mat-label>
+                        <input matInput formControlName="gdFire" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Lightning</mat-label>
+                        <input matInput formControlName="gdLightning" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Holy</mat-label>
+                        <input matInput formControlName="gdHoly" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Guard Boost</mat-label>
+                        <input matInput formControlName="guardBoost" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--3">
+                </div>
+                <div class="row__column row__column--3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="row__column row__column--6">
+            <h2>Attribute Scaling</h2>
+            <div class="row">
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Strength</mat-label>
+                        <input matInput formControlName="strScaling">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Dexterity</mat-label>
+                        <input matInput formControlName="dexScaling">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Intelligence</mat-label>
+                        <input matInput formControlName="intScaling">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Faith</mat-label>
+                        <input matInput formControlName="faiScaling">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Arcane</mat-label>
+                        <input matInput formControlName="arcScaling">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row__column row__column--6">
+            <h2>Attributes Required</h2>
+            <div class="row">
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Strength</mat-label>
+                        <input matInput formControlName="str" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Dexterity</mat-label>
+                        <input matInput formControlName="dex" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Intelligence</mat-label>
+                        <input matInput formControlName="int" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Faith</mat-label>
+                        <input matInput formControlName="fai" type="number">
+                    </mat-form-field>
+                </div>
+                <div class="row__column row__column--2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Arcane</mat-label>
+                        <input matInput formControlName="arc" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Passive Effect</mat-label>
+        <input matInput formControlName="effect">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <textarea matInput formControlName="location"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="saveItem()">Save</button>
+</form>

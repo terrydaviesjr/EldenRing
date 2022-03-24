@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.sidenav {
+    top: 0;
+    position: sticky;
+    &__content {
+        width: 240px;
+        height: calc(100vh - 56px);
+        overflow: auto;
+        
+    }
+    &__item {
+        &--selected {
+            background: rgba(0,0,0,.15);
+            color:#3c3d31;
+        }
+    }
+}
+
+mat-nav-list {
+    padding-top: 0 !important;
+}
+
+.content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 4vh 8vh;
+    min-height: 100vh;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    // background: linear-gradient(#151611, #3c3d31);
+}

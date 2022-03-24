@@ -1,0 +1,31 @@
+<ng-container *ngIf="item?.type?.alias === 'tool'">
+    <app-tool-edit [tool]="item"></app-tool-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'summon-ash'">
+    <app-ash-edit [ash]="item"></app-ash-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'ash-of-war'">
+    <app-ash-of-war-edit [ashOfWar]="item"></app-ash-of-war-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'armament'">
+    <app-armament-edit [armament]="item"></app-armament-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'armor'">
+    <app-armor-edit [armor]="item"></app-armor-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'crafting-material'">
+    <app-material-edit [material]="item"></app-material-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'sorcery' || item?.type?.alias === 'incantation'">
+    <app-spell-edit [spell]="item"></app-spell-edit>
+</ng-container>
+
+<ng-container *ngIf="item?.type?.alias === 'key-item' || item?.type?.alias === 'bolstering-material'">
+    <app-basic-item-edit [item]="item"></app-basic-item-edit>
+</ng-container>

@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -0.5rem;
+    
+    &__column {
+        flex: 0 1 100%;
+        border-style: solid;
+        border-color: transparent;
+        border-width: 0 0.5rem;
+        max-width: 100%;
+
+        @for $i from 1 through 10 {
+            &--#{$i} {
+                flex-basis: calc((#{$i} / 12) * 100%);
+                max-width: calc((#{$i} / 12) * 100%);
+            }
+        }
+    }
+}

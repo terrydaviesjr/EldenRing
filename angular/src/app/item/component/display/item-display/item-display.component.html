@@ -1,0 +1,8 @@
+<div class="item-display-placeholder">
+    <h1>{{item.name}}</h1>
+    <a routerLink="edit">Edit</a>
+</div>
+
+<ng-container *ngIf="item.type.alias === 'armament'">
+    <app-armament-display [armament]="item"></app-armament-display>
+</ng-container>

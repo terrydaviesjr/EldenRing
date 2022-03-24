@@ -1,7 +1,6 @@
 const PROXY_CONFIG = {
     "/": {
-        "target": "https://peppy-cosmos-343922.ue.r.appspot.com",
-        //"target": "http://localhost:8080",
+        "target": "http://localhost:8080",
         "secure": false,
         "changeOrigin": true,
         "bypass": function (req, res, proxyOptions) {

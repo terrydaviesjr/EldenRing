@@ -1,32 +1,24 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatTableModule} from "@angular/material/table";
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ItemSearchComponent } from './component/item-search/item-search.component';
-import { ItemDetailComponent } from './component/item-detail/item-detail.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { ErCommonModule } from "./common/er-common.module";
+import { ItemModule } from "./item/item.module";
+import { NpcModule } from "./npc/npc.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ItemSearchComponent,
-    ItemDetailComponent
+    AppComponent
+
   ],
   imports: [
-    BrowserModule,
     CommonModule,
-    HttpClientModule,
+    BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTableModule
+    ItemModule,
+    ErCommonModule,
+    NpcModule
   ],
   providers: [],
   bootstrap: [AppComponent]

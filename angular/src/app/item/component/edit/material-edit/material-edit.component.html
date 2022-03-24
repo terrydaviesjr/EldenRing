@@ -1,0 +1,41 @@
+<form class="item-edit__form" [formGroup]="form">
+    <div class="row">
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--6">
+            <mat-form-field appearance="fill">
+                <mat-label>Alias</mat-label>
+                <input matInput formControlName="alias">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Item Type</mat-label>
+        <mat-select formControlName="type" [compareWith]="compareFn" [disabled]="true">
+            <mat-option *ngFor="let type of itemTypeOptions" [value]="type">{{type.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Item Effect</mat-label>
+        <textarea matInput formControlName="effect"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Obtained</mat-label>
+        <textarea matInput formControlName="obtained"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" (click)="saveItem()">Save</button>
+</form>

@@ -1,0 +1,17 @@
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <main class="main">
+            <div class="sidenav">
+                <div class="sidenav__content">
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="/items" routerLinkActive="sidenav__item--selected">Items</a>
+                        <a mat-list-item routerLink="/npcs" routerLinkActive="sidenav__item--selected">NPCs</a>
+                    </mat-nav-list>
+                </div>
+            </div>
+            <div class="content">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

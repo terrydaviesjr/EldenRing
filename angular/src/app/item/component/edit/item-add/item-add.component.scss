@@ -1,0 +1,7 @@
+@import 'settings';
+
+.item-add {
+    &__form {
+        @include edit-block;
+    }
+}

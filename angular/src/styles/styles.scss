@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'material/material';
+@import 'pattern/pattern';
+
+@import 'settings';
+
+* {
+    box-sizing: border-box;
+}
+
+html, body { 
+    min-height: 100%; 
+    color:#EFEBE9;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+textarea {
+    min-height: 100px;
+}
+
+.item-edit {
+    &__form {
+        @include edit-block;
+    }
+}
