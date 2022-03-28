@@ -218,6 +218,9 @@
                         <input matInput formControlName="arcScaling">
                     </mat-form-field>
                 </div>
+                <div class="row__column row__column--2">
+                
+                </div>
             </div>
         </div>
         <div class="row__column row__column--6">
@@ -253,6 +256,9 @@
                         <input matInput formControlName="arc" type="number">
                     </mat-form-field>
                 </div>
+                <div class="row__column row__column--2">
+
+                </div>
             </div>
         </div>
     </div>
@@ -270,6 +276,11 @@
     <mat-form-field appearance="fill">
         <mat-label>Location</mat-label>
         <textarea matInput formControlName="location"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Test</mat-label>
+        <input matInput formControlName="stats[0].apCritical">
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="saveItem()">Save</button>
