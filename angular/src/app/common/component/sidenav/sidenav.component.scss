@@ -7,7 +7,7 @@
     top: 0;
     position: sticky;
     &__content {
-        width: 240px;
+        width: 125px;
         height: calc(100vh - 56px);
         overflow: auto;
         
@@ -31,5 +31,4 @@ mat-nav-list {
     padding: 4vh 8vh;
     min-height: 100vh;
     border-left: 1px solid rgba(0, 0, 0, 0.12);
-    // background: linear-gradient(#151611, #3c3d31);
 }

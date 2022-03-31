@@ -14,8 +14,6 @@ export class NpcEditComponent implements OnInit {
 
   npc: Npc = new Npc();
 
-  form: FormGroup = new FormGroup({});
-
   compareFn = aliasCompareFn;
 
   constructor(private route: ActivatedRoute,
@@ -27,17 +25,9 @@ export class NpcEditComponent implements OnInit {
     this.route.data.subscribe((data) => {
       if (data && data['npc']) {
         this.npc = Object.assign(new Npc(), data['npc']);
-
-        Object.keys(this.npc).forEach((key: string, _index: number) => {
-          this.form.addControl(key, new FormControl(this.npc[key]));
-      })
       }
     });
-    
-    this.form?.valueChanges.subscribe((data) => {
-      this.npc = Object.assign(this.npc, data);
-    })
-
+  
   }
 
   save(): void {

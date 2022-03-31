@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { aliasCompareFn } from 'src/app/common/domain/function/alias-compare.function';
 import { Ash } from 'src/app/item/domain/ash';
@@ -18,8 +16,6 @@ export class AshEditComponent implements OnInit {
   @Input()
   ash: Ash = new Ash();
 
-  form: FormGroup = new FormGroup({});
-
   itemTypeOptions: ItemType[] = ItemTypeOptions;
   compareFn = aliasCompareFn;
 
@@ -29,15 +25,6 @@ export class AshEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.ash = Object.assign(new Ash(), this.ash);
-
-    Object.keys(this.ash).forEach((key: string, _index: number) => {
-        this.form.addControl(key, new FormControl(this.ash[key]));
-    })
-
-    this.form?.valueChanges.subscribe((data) => {
-      this.ash = Object.assign(this.ash, data);
-    })
-
   }
 
   saveItem(): void {

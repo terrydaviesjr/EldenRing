@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemTypeOptions } from 'src/app/item/domain/const/item-type';
 import { Item } from 'src/app/item/domain/item';
@@ -14,7 +13,6 @@ import { ItemHttpService } from 'src/app/item/http/item-http.service';
 export class ItemAddComponent implements OnInit {
   
   item: Item = new Item();
-  form: FormGroup = new FormGroup({});
   itemTypeOptions: ItemType[] = ItemTypeOptions;
 
   constructor(private route: ActivatedRoute,
@@ -22,13 +20,6 @@ export class ItemAddComponent implements OnInit {
               private httpService: ItemHttpService) { }
 
   ngOnInit(): void {
-    this.form.addControl('name', new FormControl());
-    this.form.addControl('alias', new FormControl());
-    this.form.addControl('type', new FormControl());
-
-    this.form?.valueChanges.subscribe((data) => {
-      this.item = Object.assign(this.item, data);
-    })
   }
 
   continue(): void {

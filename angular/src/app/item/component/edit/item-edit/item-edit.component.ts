@@ -10,7 +10,7 @@ import { Item } from 'src/app/item/domain/item';
 export class ItemEditComponent implements OnInit {
 
   // Assigned dynamically via components
-  item: any ={};
+  item: any = {};
 
   constructor(private route: ActivatedRoute) { }
 
@@ -18,7 +18,6 @@ export class ItemEditComponent implements OnInit {
     this.route.data.subscribe((data) => {
       if (data['item']) {
         this.item = Object.assign(new Item(), data['item']);
-        console.log(this.item);
       } else {
         this.item = new Item();
       }

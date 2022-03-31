@@ -17,8 +17,6 @@ export class BasicItemEditComponent implements OnInit {
   @Input()
   item: Item = new Item();
 
-  form: FormGroup = new FormGroup({});
-
   itemTypeOptions: ItemType[] = ItemTypeOptions;
   compareFn = aliasCompareFn;
 
@@ -28,15 +26,6 @@ export class BasicItemEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.item = Object.assign(new Item(), this.item);
-
-    Object.keys(this.item).forEach((key: string, _index: number) => {
-        this.form.addControl(key, new FormControl(this.item[key]));
-    })
-
-    this.form?.valueChanges.subscribe((data) => {
-      this.item = Object.assign(this.item, data);
-    })
-
   }
 
   saveItem(): void {

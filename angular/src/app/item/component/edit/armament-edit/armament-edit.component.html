@@ -1,15 +1,15 @@
-<form class="item-edit__form" [formGroup]="form">
+<form class="item-edit__form" #form="ngForm">
     <div class="row">
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
+                <input matInput name="name" [(ngModel)]="armament.name">
             </mat-form-field>
         </div>
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Alias</mat-label>
-                <input matInput formControlName="alias">
+                <input matInput name="alias"[(ngModel)]="armament.alias">
             </mat-form-field>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Item Type</mat-label>
-                <mat-select formControlName="type" [compareWith]="compareFn" [disabled]="true">
+                <mat-select name="type" [(ngModel)]="armament.type" [compareWith]="compareFn" [disabled]="true">
                     <mat-option *ngFor="let type of itemTypeOptions" [value]="type">{{type.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -26,7 +26,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Item Subtype</mat-label>
-                <mat-select formControlName="subtype">
+                <mat-select name="subtype" [(ngModel)]="armament.subtype">
                     <mat-option value="Melee Armament">Melee Armament</mat-option>
                     <mat-option value="Ranged Weapon / Catalyst">Ranged Weapon / Catalyst</mat-option>
                     <mat-option value="Arrow / Bolt">Arrow / Bolt</mat-option>
@@ -40,7 +40,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Category</mat-label>
-                <mat-select formControlName="category">
+                <mat-select name="category" [(ngModel)]="armament.category">
                     <mat-option value="Hammer">Hammer</mat-option>
                     <mat-option value="Torch">Torch</mat-option>
                 </mat-select>
@@ -49,7 +49,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Damage Type</mat-label>
-                <mat-select formControlName="damageType">
+                <mat-select name="damageType" [(ngModel)]="armament.damageType">
                     <mat-option value="Slash">Slash</mat-option>
                     <mat-option value="Strike">Strike</mat-option>
                     <mat-option value="Pierce">Pierce</mat-option>
@@ -62,226 +62,242 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Skill</mat-label>
-                <input matInput formControlName="skill">
+                <input matInput name="skill" [(ngModel)]="armament.skill">
             </mat-form-field>
         </div>
         <div class="row__column row__column--3">
             <mat-form-field appearance="fill">
                 <mat-label>FP Cost</mat-label>
-                <input matInput formControlName="skillFpCost" type="number">
+                <input matInput name="skillFpCost" type="number" [(ngModel)]="armament.skillFpCost">
             </mat-form-field>
         </div>
         <div class="row__column row__column--3">
             <mat-form-field appearance="fill">
                 <mat-label>Weight</mat-label>
-                <input matInput formControlName="weight" type="number">
+                <input matInput name="weight" type="number" [(ngModel)]="armament.weight">
             </mat-form-field>
         </div>
     </div>
-
+    <h2>Attributes Required</h2>
     <div class="row">
-        <div class="row__column row__column--6">
-            <h2>Attack Power</h2>
-            <div class="row">
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Physical</mat-label>
-                        <input matInput formControlName="apPhysical" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Magic</mat-label>
-                        <input matInput formControlName="apMagic" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Fire</mat-label>
-                        <input matInput formControlName="apFire" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Lightning</mat-label>
-                        <input matInput formControlName="apLightning" type="number">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Holy</mat-label>
-                        <input matInput formControlName="apHoly" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Critical</mat-label>
-                        <input matInput formControlName="apCritical" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Sorc. Scaling</mat-label>
-                        <input matInput formControlName="sorcScaling" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Incant. Scaling</mat-label>
-                        <input matInput formControlName="incScaling" type="number">
-                    </mat-form-field>
-                </div>
-            </div>
+        <div class="row__column row__column--2">
+            <mat-form-field appearance="fill">
+                <mat-label>Strength</mat-label>
+                <input matInput name="str" type="number" [(ngModel)]="armament.str">
+            </mat-form-field>
         </div>
-        <div class="row__column row__column--6">
-            <h2>Guarded Damage Negation</h2>
-            <div class="row">
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Physical</mat-label>
-                        <input matInput formControlName="gdPhysical" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Magic</mat-label>
-                        <input matInput formControlName="gdMagic" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Fire</mat-label>
-                        <input matInput formControlName="gdFire" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Lightning</mat-label>
-                        <input matInput formControlName="gdLightning" type="number">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Holy</mat-label>
-                        <input matInput formControlName="gdHoly" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Guard Boost</mat-label>
-                        <input matInput formControlName="guardBoost" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--3">
-                </div>
-                <div class="row__column row__column--3">
-                </div>
-            </div>
+        <div class="row__column row__column--2">
+            <mat-form-field appearance="fill">
+                <mat-label>Dexterity</mat-label>
+                <input matInput name="dex" type="number" [(ngModel)]="armament.dex">
+            </mat-form-field>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="row__column row__column--6">
-            <h2>Attribute Scaling</h2>
-            <div class="row">
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Strength</mat-label>
-                        <input matInput formControlName="strScaling">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Dexterity</mat-label>
-                        <input matInput formControlName="dexScaling">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Intelligence</mat-label>
-                        <input matInput formControlName="intScaling">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Faith</mat-label>
-                        <input matInput formControlName="faiScaling">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Arcane</mat-label>
-                        <input matInput formControlName="arcScaling">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                
-                </div>
-            </div>
+        <div class="row__column row__column--2">
+            <mat-form-field appearance="fill">
+                <mat-label>Intelligence</mat-label>
+                <input matInput name="int" type="number" [(ngModel)]="armament.int">
+            </mat-form-field>
         </div>
-        <div class="row__column row__column--6">
-            <h2>Attributes Required</h2>
-            <div class="row">
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Strength</mat-label>
-                        <input matInput formControlName="str" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Dexterity</mat-label>
-                        <input matInput formControlName="dex" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Intelligence</mat-label>
-                        <input matInput formControlName="int" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Faith</mat-label>
-                        <input matInput formControlName="fai" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Arcane</mat-label>
-                        <input matInput formControlName="arc" type="number">
-                    </mat-form-field>
-                </div>
-                <div class="row__column row__column--2">
-
-                </div>
-            </div>
+        <div class="row__column row__column--2">
+            <mat-form-field appearance="fill">
+                <mat-label>Faith</mat-label>
+                <input matInput name="fai" type="number" [(ngModel)]="armament.fai">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--2">
+            <mat-form-field appearance="fill">
+                <mat-label>Arcane</mat-label>
+                <input matInput name="arc" type="number" [(ngModel)]="armament.arc">
+            </mat-form-field>
+        </div>
+        <div class="row__column row__column--2">
         </div>
     </div>
 
     <mat-form-field appearance="fill">
         <mat-label>Passive Effect</mat-label>
-        <input matInput formControlName="effect">
+        <input matInput name="effect" [(ngModel)]="armament.effect">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description"></textarea>
+        <textarea matInput name="description" [(ngModel)]="armament.description"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Location</mat-label>
-        <textarea matInput formControlName="location"></textarea>
+        <textarea matInput name="location" [(ngModel)]="armament.location"></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Test</mat-label>
-        <input matInput formControlName="stats[0].apCritical">
-    </mat-form-field>
+    <mat-checkbox name="special" [(ngModel)]="armament.special">Special</mat-checkbox>
+    <mat-checkbox name="legendary" [(ngModel)]="armament.legendary">Legendary</mat-checkbox>
+
+    <mat-tab-group class="armament-stat-group" mat-stretch-tabs>
+        <mat-tab label="Standard">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'standard'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Heavy">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'heavy'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Keen">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'keen'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Quality">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'quality'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Fire">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'fire'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Flame">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'flame'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Lightning">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'lightning'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Sacred">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'sacred'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Magic">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'magic'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Cold">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'cold'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Poison">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'poison'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Blood">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'blood'}"></ng-template>
+        </mat-tab>
+        <mat-tab label="Occult">
+            <ng-template *ngTemplateOutlet="statTable; context: {$implicit: 'occult'}"></ng-template>
+        </mat-tab>
+    </mat-tab-group>
 
     <button mat-raised-button color="primary" (click)="saveItem()">Save</button>
 </form>
+
+<ng-template #statTable let-key>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <th colspan="5">Attack Power</th>
+            <th colspan="5">Stat Scaling</th>
+            <th>Passive Effects</th>
+            <th colspan="6">Damage Reduction (%)</th>
+        </tr>
+        <tr>
+            <td>{{armament.name}}</td>
+            <!--Attack Power-->
+            <td>Phy</td>
+            <td>Mag</td>
+            <td>Fir</td>
+            <td>Lit</td>
+            <td>Hol</td>
+            <!--Scaling-->
+            <td>Str</td>
+            <td>Dex</td>
+            <td>Int</td>
+            <td>Fai</td>
+            <td>Arc</td>
+            <!--Passives-->
+            <td>-</td>
+            <!--Damage Reduction-->
+            <td>Phy</td>
+            <td>Mag</td>
+            <td>Fir</td>
+            <td>Lit</td>
+            <td>Hol</td>
+            <td>Bst</td>
+        </tr>
+        <tr *ngFor="let set of armament.stats[key]; let i = index">
+            <td>{{key | titlecase}} +{{i}}</td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'apPhysical'" type="number" [(ngModel)]="set.apPhysical">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'apMagic'" type="number" [(ngModel)]="set.apMagic">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'apFire'" type="number" [(ngModel)]="set.apFire">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'apLightning'" type="number" [(ngModel)]="set.apLightning">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'apHoly'" type="number" [(ngModel)]="set.apHoly">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'strScaling'" type="text" [(ngModel)]="set.strScaling">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'dexScaling'" type="text" [(ngModel)]="set.dexScaling">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'intScaling'" type="text" [(ngModel)]="set.intScaling">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'faiScaling'" type="text" [(ngModel)]="set.faiScaling">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'arcScaling'" type="text" [(ngModel)]="set.arcScaling">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'passive'" type="text" [(ngModel)]="set.passive">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'gdPhysical'" type="number" [(ngModel)]="set.gdPhysical">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'gdMagic'" type="number" [(ngModel)]="set.gdMagic">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'gdFire'" type="number" [(ngModel)]="set.gdFire">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'gdLightning'" type="number" [(ngModel)]="set.gdLightning">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'gdHoly'" type="number" [(ngModel)]="set.gdHoly">
+                </div>
+            </td>
+            <td>
+                <div class="item-edit__cell-input">
+                    <input [name]="key + i + 'guardBoost'" type="number" [(ngModel)]="set.guardBoost">
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</ng-template>

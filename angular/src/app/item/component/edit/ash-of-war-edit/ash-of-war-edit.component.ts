@@ -17,8 +17,6 @@ export class AshOfWarEditComponent implements OnInit {
   @Input()
   ashOfWar: AshOfWar = new AshOfWar();
 
-  form: FormGroup = new FormGroup({});
-
   itemTypeOptions: ItemType[] = ItemTypeOptions;
   compareFn = aliasCompareFn;
 
@@ -28,15 +26,6 @@ export class AshOfWarEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.ashOfWar = Object.assign(new AshOfWar(), this.ashOfWar);
-
-    Object.keys(this.ashOfWar).forEach((key: string, _index: number) => {
-        this.form.addControl(key, new FormControl(this.ashOfWar[key]));
-    })
-
-    this.form?.valueChanges.subscribe((data) => {
-      this.ashOfWar = Object.assign(this.ashOfWar, data);
-    })
-
   }
 
   saveItem(): void {

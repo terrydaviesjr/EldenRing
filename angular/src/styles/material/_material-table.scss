@@ -1,3 +1,9 @@
 table.mat-table {
     min-width: 100%;
 }
+
+mat-tab-group.armament-stat-group {
+    .mat-tab-label {
+        min-width: 80px;
+    }
+}

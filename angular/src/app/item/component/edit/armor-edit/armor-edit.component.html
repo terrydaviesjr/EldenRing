@@ -1,15 +1,15 @@
-<form class="item-edit__form" [formGroup]="form">
+<form class="item-edit__form" #form="ngForm">
     <div class="row">
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
+                <input matInput name="name" [(ngModel)]="armor.name">
             </mat-form-field>
         </div>
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Alias</mat-label>
-                <input matInput formControlName="alias">
+                <input matInput name="alias" [(ngModel)]="armor.alias">
             </mat-form-field>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Item Type</mat-label>
-                <mat-select formControlName="type" [compareWith]="compareFn" [disabled]="true">
+                <mat-select name="type" [(ngModel)]="armor.type" [compareWith]="compareFn" [disabled]="true">
                     <mat-option *ngFor="let type of itemTypeOptions" [value]="type">{{type.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -26,7 +26,7 @@
         <div class="row__column row__column--6">
             <mat-form-field appearance="fill">
                 <mat-label>Item Subtype</mat-label>
-                <mat-select formControlName="subtype">
+                <mat-select name="subtype" [(ngModel)]="armor.subtype">
                     <mat-option value="Head">Head</mat-option>
                     <mat-option value="Chest">Chest</mat-option>
                     <mat-option value="Arms">Legs</mat-option>
@@ -38,7 +38,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Weight</mat-label>
-        <input matInput formControlName="weight" type="number">
+        <input matInput name="weight" type="number" [(ngModel)]="armor.weight">
     </mat-form-field>
 
     <div class="row">
@@ -48,25 +48,25 @@
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Physical</mat-label>
-                        <input matInput formControlName="physical" type="number">
+                        <input matInput name="physical" type="number" [(ngModel)]="armor.physical">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Strike</mat-label>
-                        <input matInput formControlName="strike" type="number">
+                        <input matInput name="strike" type="number" [(ngModel)]="armor.strike">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Slash</mat-label>
-                        <input matInput formControlName="slash" type="number">
+                        <input matInput name="slash" type="number" [(ngModel)]="armor.slash">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Pierce</mat-label>
-                        <input matInput formControlName="pierce" type="number">
+                        <input matInput name="pierce" type="number" [(ngModel)]="armor.pierce">
                     </mat-form-field>
                 </div>
             </div>
@@ -74,25 +74,25 @@
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Magic</mat-label>
-                        <input matInput formControlName="magic" type="number">
+                        <input matInput name="magic" type="number" [(ngModel)]="armor.magic">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Fire</mat-label>
-                        <input matInput formControlName="fire" type="number">
+                        <input matInput name="fire" type="number" [(ngModel)]="armor.fire">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Lightning</mat-label>
-                        <input matInput formControlName="lightning" type="number">
+                        <input matInput name="lightning" type="number" [(ngModel)]="armor.lightning">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Holy</mat-label>
-                        <input matInput formControlName="holy" type="number">
+                        <input matInput name="holy" type="number" [(ngModel)]="armor.holy">
                     </mat-form-field>
                 </div>
             </div>
@@ -103,31 +103,31 @@
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Immunity</mat-label>
-                        <input matInput formControlName="immunity" type="number">
+                        <input matInput name="immunity" type="number" [(ngModel)]="armor.immunity">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Robustness</mat-label>
-                        <input matInput formControlName="robustness" type="number">
+                        <input matInput name="robustness" type="number" [(ngModel)]="armor.robustness">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Focus</mat-label>
-                        <input matInput formControlName="focus" type="number">
+                        <input matInput name="focus" type="number" [(ngModel)]="armor.focus">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Vitality</mat-label>
-                        <input matInput formControlName="vitality" type="number">
+                        <input matInput name="vitality" type="number" [(ngModel)]="armor.vitality">
                     </mat-form-field>
                 </div>
                 <div class="row__column row__column--3">
                     <mat-form-field appearance="fill">
                         <mat-label>Poise</mat-label>
-                        <input matInput formControlName="poise" type="number">
+                        <input matInput name="poise" type="number" [(ngModel)]="armor.poise">
                     </mat-form-field>
                 </div>
             </div>
@@ -136,12 +136,12 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description"></textarea>
+        <textarea matInput name="description" [(ngModel)]="armor.description"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Location</mat-label>
-        <textarea matInput formControlName="location"></textarea>
+        <textarea matInput name="location" [(ngModel)]="armor.location"></textarea>
     </mat-form-field>
 
     <button mat-raised-button color="primary" (click)="saveItem()">Save</button>

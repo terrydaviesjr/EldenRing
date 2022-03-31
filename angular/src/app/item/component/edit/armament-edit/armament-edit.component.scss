@@ -1,0 +1,32 @@
+.item-edit {
+    &__cell-input {
+        input {
+            width: 50px;
+        }
+    }
+}
+
+mat-checkbox {
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+table {
+    background-color:rgba(0, 0, 0, 0.04);
+    width: 100%;
+    border-collapse: collapse;
+    th {
+        text-align: center;
+        border-left: 1px solid rgba(0, 0, 0, 0.12);
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    td {
+        padding: 8px;
+    }
+    tr {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        &:nth-of-type(odd) {
+            background-color: white;
+        }
+    }
+}

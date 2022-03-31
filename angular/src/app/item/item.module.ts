@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatOptionModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
@@ -9,6 +9,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatTableModule } from "@angular/material/table";
 import { BrowserModule } from "@angular/platform-browser";
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ArmamentDisplayComponent } from "./component/display/armament-display/armament-display.component";
@@ -53,6 +54,7 @@ import { ErCommonModule } from "../common/er-common.module";
       HttpClientModule,
       BrowserAnimationsModule,
       ReactiveFormsModule,
+      FormsModule,
       ItemRoutingModule,
       ErCommonModule,
       MatInputModule,
@@ -61,7 +63,8 @@ import { ErCommonModule } from "../common/er-common.module";
       MatOptionModule,
       MatSelectModule,
       MatCheckboxModule,
-      MatIconModule
+      MatIconModule,
+      MatTabsModule
     ],
     providers: []
   })

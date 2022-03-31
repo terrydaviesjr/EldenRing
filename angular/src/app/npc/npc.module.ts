@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatOptionModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
@@ -29,6 +29,7 @@ import { NpcEditComponent } from "./component/npc-edit/npc-edit.component";
       HttpClientModule,
       BrowserAnimationsModule,
       ReactiveFormsModule,
+      FormsModule,
       NpcRoutingModule,
       ErCommonModule,
       MatInputModule,
