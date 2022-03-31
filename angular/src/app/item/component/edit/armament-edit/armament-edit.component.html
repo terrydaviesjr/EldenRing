@@ -41,8 +41,12 @@
             <mat-form-field appearance="fill">
                 <mat-label>Category</mat-label>
                 <mat-select name="category" [(ngModel)]="armament.category">
+                    <mat-option value="Straight Sword">Straight Sword</mat-option>
+                    <mat-option value="Halberd">Halberd</mat-option>
                     <mat-option value="Hammer">Hammer</mat-option>
                     <mat-option value="Torch">Torch</mat-option>
+                    <mat-option value="Medium Shield">Medium Shield</mat-option>
+                    <mat-option value="Greatshield">Greatshield</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -53,6 +57,7 @@
                     <mat-option value="Slash">Slash</mat-option>
                     <mat-option value="Strike">Strike</mat-option>
                     <mat-option value="Pierce">Pierce</mat-option>
+                    <mat-option value="Standard/Pierce">Standard/Pierce</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
